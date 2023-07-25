@@ -1,8 +1,4 @@
 /* Load page */
-*{
-    padding: 0;
-    margin: 0;
-}
 
 html, body{
     background-color: #222831;
@@ -43,7 +39,7 @@ header{
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
     margin: 5%;
-    gap: 100px;
+    gap: 20px;
     justify-content: center;
 }
 
