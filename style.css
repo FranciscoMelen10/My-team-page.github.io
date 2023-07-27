@@ -2,13 +2,14 @@
 
 html, body{
     background-color: #222831;
+    box-sizing: border-box;
 }
 
 p, h2, h3{
     color: #EEEEEE;
 }
 
-.contenedor-principal img{
+img{
     height: 300px;
     width: 250px;
     margin: 20px;
@@ -43,7 +44,8 @@ header{
     justify-content: center;
 }
 
-.contenedor-principal section{
+
+.contenedor-principal > section{
     position: relative;
     display: flex;
     flex-direction: row-reverse;
@@ -53,17 +55,24 @@ header{
     align-items: center;
     border: 2px solid #EEEEEE ;
     transition: 1s;
+}
 
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .p-profession{
-	position: absolute;
+	position: absolute; 
 	top: 0;
 	right: 0;
-	transform: rotate(90deg) translate(100%, 100%);
+	transform: rotate(90deg) translate(100%,100%);
 	transform-origin: bottom right;
-
 } 
+
+
 
 .p-name {
     text-align: center;
@@ -80,8 +89,34 @@ footer {
     background-color: #0A2647;
 }
 
+
 /* Hover */
 .contenedor-principal section:hover{
     background-color: #3296d8;
     cursor: pointer;
+} 
+
+/*  Funcionalidades del modal con el Javascript*/
+.caja-media{
+    display: none;
+}
+
+
+.caja-media.visible {
+    position: fixed;  
+    opacity: 0.9;  
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    display: flex;
+}
+
+.modal{
+    width: 80%;
+    height: 80%;
+    background-color: #ff0000;
+    margin: auto;
+    border-radius: 30px;
 }
