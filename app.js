@@ -1,12 +1,47 @@
 //POO
 class Persona{
-    constructor(nombre_completo, edad, fecha_nacimiento, lugar){
+    constructor(nombre_completo, edad, fecha_nacimiento, lugar, fotos){
         this.nombre_completo = nombre_completo
         this.edad = edad
         this.fecha_nacimiento = fecha_nacimiento
         this.lugar = lugar
-        this.fotos = []
+        this.fotos = fotos
     }
+
+    // set nombre_completo(nombre_completo){
+    //     this.nombre_completo = nombre_completo;
+    // }
+
+    // get nombre_completo(){
+    //     return this.nombre_completo;
+    // }
+
+
+    // get edad(){
+    //     return this.edad;
+    // }
+
+    // set edad(edad){
+    //     this.edad = edad;
+    // }
+
+
+    // get fecha_nacimiento(){
+    //     return this.fecha_nacimiento;
+    // }
+
+    // set fecha_nacimiento(fecha_nacimiento){
+    //     this.fecha_nacimiento = fecha_nacimiento;
+    // }
+
+
+    // get lugar(){
+    //     return this.lugar;
+    // }
+
+    // set lugar(lugar){
+    //     this.lugar = lugar;
+    // }
 }
 
 //Arreglos de objetos
@@ -15,30 +50,54 @@ let perso = []
 // Instancias de las clases
 
 // Francisco De Jesús Meléndez Simplina
-let Francisco = new Persona("Francisco De Jesús Meléndez Simplina", "18 años", "10/11/2004", "Potrerillos - Cortes");
+let Francisco = new Persona("Francisco De Jesús Meléndez Simplina", "18 años", "10/11/2004", "Potrerillos - Cortes", "./Resource/Francisco/Foto1.jpg");
 
 //  Rechi Frabelle Meléndez Simplina
-let Renchi = new Persona("Rechi Frabelle Meléndez Simplina", "22 años", "", "Potrerillos - Cortes");
+let Renchi = new Persona("Rechi Frabelle Meléndez Simplina", "22 años", "18/02/2001", "Potrerillos - Cortes", "./Resource/Renchi/Foto2.jpg");
 
 //  Carlos Eduardo Chavarría Centeno
-let Carlos = new Persona("Carlos Eduardo Chavarría Centeno", "18 años", "", "Jinotega");
+let Carlos = new Persona("Carlos Eduardo Chavarría Centeno", "18 años", "", "Jinotega", "./Resource/Carlos/Foto3.jpg");
 
 //  Isabel Denisse Aguilar Vílchez
-let Denisse = new Persona("Isabel Denisse Aguilar Vílchez", "18 años", "", "Leon");
+let Denisse = new Persona("Isabel Denisse Aguilar Vílchez", "18 años", "", "Managua", "./Resource/Denisse/Foto4.jpg");
 
 //  René Nicolás Sandoval Lagos
-let Rene = new Persona("René Nicolás Sandoval Lagos", "18 años", "", "Leon");
+let Rene = new Persona("René Nicolás Sandoval Lagos", "18 años", "", "Leon", "./Resource/Rene/Foto5.jpg");
 
 //  Ana Marbell Zepeda Almendarez
-let Ana = new Persona("Ana Marbell Zepeda Almendarez", "18 años", "", "Chinandega");
+let Ana = new Persona("Ana Marbell Zepeda Almendarez", "18 años", "", "Chinandega", "./Resource/Ana/Foto6.jpg");
 
 
 // Push a todas las instancias en el arreglo de objetos
 perso.push(Francisco, Renchi, Carlos, Denisse, Rene, Ana)
 
 // Acciones con el CSS combinado con el Javascript
-
+const contendor_principal = document.querySelector(".contenedor-principal")
 const modal = document.querySelector(".caja-media")
+const contenedor_persona = document.querySelector(".contenedor-persona")
+
+// Auxiliar para llenar los contenedores del HTML
+let info
+
+function llenar_principal(){
+    let contador = 1
+    perso.forEach(element => {
+        info = `
+        <section class="contenedor-${contador}" id="contents${contador}">
+            <p class="p-profession">System Engineer</p>
+            <div class="div-info">
+                <img src="${element.fotos}" alt="Foto${contador}">
+                <p class="p-name">${element.nombre_completo}</p>
+            </div>
+        </section>
+        `
+        contendor_principal.innerHTML += info
+        contador += 1
+    });
+
+}
+
+llenar_principal() //Llenar contenedores
 
 /* Llamada de cada persona*/
 const info1 = document.querySelector("#contents1") //Francisco
@@ -77,23 +136,30 @@ function abrir_modal(numero) {
     modal.classList.add("visible")
     switch (numero) {
         case 1:
-            alert(Francisco.nombre_completo)
+            cargar_informacion(Francisco)
             break;
         case 2:
-            alert(Renchi.nombre_completo)
+            cargar_informacion(Renchi)
             break;
         case 3:
-            alert(Carlos.nombre_completo)
+            cargar_informacion(Carlos)
             break;
         case 4:
-            alert(Denisse.nombre_completo)
+            cargar_informacion(Denisse)
             break;
         case 5:
-            alert(Rene.nombre_completo)
+            cargar_informacion(Rene)
             break;
         case 6:
-            alert(Ana.nombre_completo)
+            cargar_informacion(Ana)
             break;
         
     }
+}
+
+function cargar_informacion(Persona){
+    info = `
+    <h1> ${Persona.nombre_completo}</h1>
+    `
+    contenedor_persona.innerHTML += info
 }

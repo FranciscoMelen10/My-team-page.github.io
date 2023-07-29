@@ -10,10 +10,11 @@ p, h2, h3{
     color: #EEEEEE;
 }
 
-img{
+.contenedor-principal img{
     height: 300px;
-    width: 250px;
+    width: 80%;
     margin: 20px;
+    border-radius: 10px;
 }
 
 /* Desing */
@@ -23,18 +24,13 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    height: 100px;
-    padding: 30px;
+
 }
 
 
 
 .div-descripcion {
     width: 40%;
-}
-
-.div-descripcion h3, .div-descripcion p{
-    margin: 10px;
 }
 
 .contenedor-principal {
@@ -72,7 +68,7 @@ header{
 
 .p-name {
     text-align: center;
-    font-size: 20px;
+    font-size: 100%;
     margin: 10px;
 }
 
@@ -100,6 +96,7 @@ footer {
 }
 
 
+
 .caja-media.visible {
     position: fixed;  
     opacity: 0.9;  
@@ -113,34 +110,38 @@ footer {
 
 }
 
-.modal{
+.modal-contenedor{
     width: 80%;
     height: 80%;
     background-color: #ff0000;
     margin: auto;
     border-radius: 30px;
     transition: 1s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 
 }
 
 /* Tablets */
 @media screen and (max-width: 955px){
 
-    img{
-        height: 230px;
-        width: 170px;
+    .contenedor-principal img{
+        height: 250px;
         margin: 20px;
     }
-    .p-profession{
-        margin-right:5px ;
+
+    .p-name{
+        font-size: medium;
     }
+
 }
 
 /* Telefonos Grandes */
 
 @media screen and (max-width: 690px){
-
-
 
     .contenedor-principal{
         display: grid;
@@ -148,10 +149,6 @@ footer {
         grid-template-rows: repeat(3, 1fr);
         gap: 20px;
         justify-content: center;
-    }
-
-    .p-profession{
-        margin-right:5% ;
     }
     
 }
@@ -165,12 +162,12 @@ footer {
     flex-direction: column;
     justify-content: center;
     }
+
     .div-descripcion {
         margin: 5%;
         width: 90%;
     }
 
-    
     img{
         height: 100%;
         width: 80%;
@@ -184,7 +181,5 @@ footer {
     }
 
 
-    .p-profession{
-        font-size: 15px;
-    }
+
 }
