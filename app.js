@@ -1,11 +1,11 @@
 //POO
 class Persona{
-    constructor(nombre_completo, edad, fecha_nacimiento, lugar, fotos){
+    constructor(nombre_completo, edad, fecha_nacimiento, lugar){
         this.nombre_completo = nombre_completo
         this.edad = edad
         this.fecha_nacimiento = fecha_nacimiento
         this.lugar = lugar
-        this.fotos = fotos
+        this.fotos = []
     }
 
     // set nombre_completo(nombre_completo){
@@ -50,22 +50,28 @@ let perso = []
 // Instancias de las clases
 
 // Francisco De Jesús Meléndez Simplina
-let Francisco = new Persona("Francisco De Jesús Meléndez Simplina", "18 años", "10/11/2004", "Potrerillos - Cortes", "./Resource/Francisco/Foto1.jpg");
+let Francisco = new Persona("Francisco De Jesús Meléndez Simplina", "18 años", "10/11/2004", "Potrerillos - Cortes");
+Francisco.fotos.push( "./Resource/Francisco/Principal.jpg") //Arreglos con la dirección de la imagen de cada persona
 
 //  Rechi Frabelle Meléndez Simplina
-let Renchi = new Persona("Rechi Frabelle Meléndez Simplina", "22 años", "18/02/2001", "Potrerillos - Cortes", "./Resource/Renchi/Foto2.jpg");
+let Renchi = new Persona("Rechi Frabelle Meléndez Simplina", "22 años", "18/02/2001", "Potrerillos - Cortes");
+Renchi.fotos.push("./Resource/Renchi/Principal.jpg") //Arreglos con la dirección de la imagen de cada persona
 
 //  Carlos Eduardo Chavarría Centeno
-let Carlos = new Persona("Carlos Eduardo Chavarría Centeno", "18 años", "", "Jinotega", "./Resource/Carlos/Foto3.jpg");
+let Carlos = new Persona("Carlos Eduardo Chavarría Centeno", "18 años", "", "Jinotega" );
+Carlos.fotos.push("./Resource/Carlos/Principal.jpg", "./Resource/Carlos/Foto1.jpg","./Resource/Carlos/Foto2.jpg", "./Resource/Carlos/Foto3.jpg", "./Resource/Carlos/Foto4.jpg","./Resource/Carlos/Foto5.jpg") //Arreglos con la dirección de la imagen de cada persona
 
 //  Isabel Denisse Aguilar Vílchez
-let Denisse = new Persona("Isabel Denisse Aguilar Vílchez", "18 años", "", "Managua", "./Resource/Denisse/Foto4.jpg");
+let Denisse = new Persona("Isabel Denisse Aguilar Vílchez", "18 años", "", "Managua" );
+Denisse.fotos.push("./Resource/Denisse/Principal.jpg", "./Resource/Denisse/Foto1.jpg","./Resource/Denisse/Foto2.jpg", "./Resource/Denisse/Foto3.jpg", "./Resource/Denisse/Foto4.jpg","./Resource/Denisse/Foto5.jpg")//Arreglos con la dirección de la imagen de cada persona
 
 //  René Nicolás Sandoval Lagos
-let Rene = new Persona("René Nicolás Sandoval Lagos", "18 años", "", "Leon", "./Resource/Rene/Foto5.jpg");
+let Rene = new Persona("René Nicolás Sandoval Lagos", "18 años", "", "Leon" );
+Rene.fotos.push("./Resource/Rene/Principal.jpg", "./Resource/Rene/Foto1.jpg","./Resource/Rene/Foto2.jpg", "./Resource/Rene/Foto3.jpg", "./Resource/Rene/Foto4.jpg","./Resource/Rene/Foto5.jpg.jpg")//Arreglos con la dirección de la imagen de cada persona
 
 //  Ana Marbell Zepeda Almendarez
 let Ana = new Persona("Ana Marbell Zepeda Almendarez", "18 años", "", "Chinandega", "./Resource/Ana/Foto6.jpg");
+Ana.fotos.push("./Resource/Ana/Principal.jpg", "./Resource/Ana/Foto1.jpg","./Resource/Ana/Foto2.jpg", "./Resource/Ana/Foto3.jpg", "./Resource/Ana/Foto4.jpg")//Arreglos con la dirección de la imagen de cada persona
 
 
 // Push a todas las instancias en el arreglo de objetos
@@ -86,7 +92,7 @@ function llenar_principal(){
         <section class="contenedor-${contador}" id="contents${contador}">
             <p class="p-profession">System Engineer</p>
             <div class="div-info">
-                <img src="${element.fotos}" alt="Foto${contador}">
+                <img src="${element.fotos[0]}" alt="Foto${contador}">
                 <p class="p-name">${element.nombre_completo}</p>
             </div>
         </section>
@@ -160,6 +166,7 @@ function abrir_modal(numero) {
 function cargar_informacion(Persona){
     info = `
     <h1> ${Persona.nombre_completo}</h1>
+    <img></img>
     `
     contenedor_persona.innerHTML += info
 }
