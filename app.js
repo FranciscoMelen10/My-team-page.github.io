@@ -69,6 +69,7 @@ Renchi.fotos.push(
     "./Resource/Renchi/Foto3.jpg",
     "./Resource/Renchi/Foto4.jpg"
     ) //Arreglos con la dirección de la imagen de cada persona
+
 //  Carlos Eduardo Chavarría Centeno
 let Carlos = new Persona("Carlos Eduardo Chavarría Centeno", "18 años", "30/03/2005", "Jinotega", "./Resource/Carlos/Principal.jpg");
 Carlos.fotos.push(
@@ -90,7 +91,7 @@ Denisse.fotos.push(
     )//Arreglos con la dirección de la imagen de cada persona
 
 //  René Nicolás Sandoval Lagos
-let Rene = new Persona("René Nicolás Sandoval Lagos", "18 años", "", "Leon", "./Resource/Rene/Principal.jpg");
+let Rene = new Persona("René Nicolás Sandoval Lagos", "18 años", "22/09/2004", "Leon", "./Resource/Rene/Principal.jpg");
 Rene.fotos.push(
     "./Resource/Rene/Foto1.jpg",
     "./Resource/Rene/Foto2.jpg", 
@@ -100,7 +101,7 @@ Rene.fotos.push(
     )//Arreglos con la dirección de la imagen de cada persona
 
 //  Ana Marbell Zepeda Almendarez
-let Ana = new Persona("Ana Marbell Zepeda Almendarez", "18 años", "", "Chinandega","./Resource/Ana/Principal.jpg");
+let Ana = new Persona("Ana Marbell Zepeda Almendarez", "18 años", "06/04/2005", "Chinandega","./Resource/Ana/Principal.jpg");
 Ana.fotos.push(
     "./Resource/Ana/Foto1.jpg",
     "./Resource/Ana/Foto2.jpg", 
@@ -114,10 +115,10 @@ Ana.fotos.push(
 perso.push(Francisco, Renchi, Carlos, Denisse, Rene, Ana)
 
 // Acciones con el CSS combinado con el Javascript
-const contendor_principal = document.querySelector(".contenedor-principal")
-const modal = document.querySelector(".caja-media")
+const contendor_principal = document.querySelector(".contenedor-principal") 
+const modal = document.querySelector(".caja-media") // Modal del dialog
 const contenedor_carusel = document.querySelector(".contendor-carusel")
-const btn_cerrar = document.querySelector(".boton-cerrar")
+const btn_cerrar = document.querySelector(".boton-cerrar") 
 
 // Auxiliar para llenar los contenedores del HTML
 let info
@@ -236,5 +237,3 @@ btn_cerrar.addEventListener("click", () => {
     contenedor_carusel.innerHTML = ""
     modal.classList.remove("visible")
 })
-
-
