@@ -63,10 +63,14 @@ Francisco.fotos.push(
 
 //  Rechi Frabelle Meléndez Simplina
 let Renchi = new Persona("Rechi Frabelle Meléndez Simplina", "22 años", "18/02/2001", "Potrerillos - Cortes", "./Resource/Renchi/Principal.jpg");
-Renchi.fotos.push("./Resource/Renchi/Principal.jpg") //Arreglos con la dirección de la imagen de cada persona
-
+Renchi.fotos.push( 
+    "./Resource/Renchi/Foto1.jpg",
+    "./Resource/Renchi/Foto2.jpg",
+    "./Resource/Renchi/Foto3.jpg",
+    "./Resource/Renchi/Foto4.jpg"
+    ) //Arreglos con la dirección de la imagen de cada persona
 //  Carlos Eduardo Chavarría Centeno
-let Carlos = new Persona("Carlos Eduardo Chavarría Centeno", "18 años", "", "Jinotega", "./Resource/Carlos/Principal.jpg");
+let Carlos = new Persona("Carlos Eduardo Chavarría Centeno", "18 años", "30/03/2005", "Jinotega", "./Resource/Carlos/Principal.jpg");
 Carlos.fotos.push(
     "./Resource/Carlos/Foto1.jpg",
     "./Resource/Carlos/Foto2.jpg",
@@ -76,7 +80,7 @@ Carlos.fotos.push(
     ) //Arreglos con la dirección de la imagen de cada persona
 
 //  Isabel Denisse Aguilar Vílchez
-let Denisse = new Persona("Isabel Denisse Aguilar Vílchez", "18 años", "", "Managua",  "./Resource/Denisse/Principal.jpg");
+let Denisse = new Persona("Isabel Denisse Aguilar Vílchez", "18 años", "15/02/2005", "Managua",  "./Resource/Denisse/Principal.jpg");
 Denisse.fotos.push(
     "./Resource/Denisse/Foto1.jpg",
     "./Resource/Denisse/Foto2.jpg", 
@@ -112,12 +116,14 @@ perso.push(Francisco, Renchi, Carlos, Denisse, Rene, Ana)
 // Acciones con el CSS combinado con el Javascript
 const contendor_principal = document.querySelector(".contenedor-principal")
 const modal = document.querySelector(".caja-media")
-const contenedor_persona = document.querySelector(".contendor-carusel")
+const contenedor_carusel = document.querySelector(".contendor-carusel")
+const btn_cerrar = document.querySelector(".boton-cerrar")
 
 // Auxiliar para llenar los contenedores del HTML
 let info
 
 function llenar_principal(){
+    // Llenar la información y foto principal de la persona
     let contador = 1
     perso.forEach(element => {
         info = `
@@ -126,6 +132,9 @@ function llenar_principal(){
             <div class="div-info">
                 <img src="${element.foto_principal}" alt="Foto${contador}">
                 <p class="p-name">${element.nombre_completo}</p>
+                <p class="p-name">${element.edad}</p>
+                <p class="p-name">${element.fecha_nacimiento}</p>
+                <p class="p-name">${element.lugar}</p>                
             </div>
         </section>
         `
@@ -169,7 +178,7 @@ info6.addEventListener("click", () => {
     abrir_modal(6)
 })
 
-
+// Selecciona y carga los datos de la persona
 function abrir_modal(numero) {
     modal.classList.add("visible")
     switch (numero) {
@@ -203,23 +212,29 @@ function llenar_carusel(Persona){
     de cada persona en un periodo de tiempo agregara la etiqueta "active" para mostrar la imagen en pantalla
     */
     let controlador = false
-
-    // Mostrar todas las imagenes de cada persona en el carusel
+    // // Mostrar todas las imagenes de cada persona en el carusel
     Persona.fotos.forEach(element => {
         if (controlador){ 
             info = `
-            <div class="carousel-item">
-                <img src="${element}" class="d-block w-100" alt="..." >
+            <div class="carousel-item" id = "foto_persona" style="height: 450px; justify-content: center; align-items: center;">
+                <img src="${element}" class="d-block" alt="..." style="height: 100%; width:100%;">
             </div>
             `
         }else{
             info = `
-            <div class="carousel-item active">
-                <img src="${Persona.fotos[0]}" class="d-block w-100" alt="..." >
+            <div class="carousel-item active foto_persona" style="height: 450px; justify-content: center; align-items: center;">
+                <img src="${Persona.fotos[0]}" class="d-block" alt="..." style="height: 100%; width:100%; justify-content: center; align-items: center;">
             </div>
             `
             controlador = true // Para iniciar con la primer foto de la lista con la etiqueta "active" y no entre en conflito con las demas etiquetas
         }
-        contenedor_persona.innerHTML += info
+        contenedor_carusel.innerHTML += info
     });
 }
+
+btn_cerrar.addEventListener("click", () => {
+    contenedor_carusel.innerHTML = ""
+    modal.classList.remove("visible")
+})
+
+
